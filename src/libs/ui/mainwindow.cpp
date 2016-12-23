@@ -295,7 +295,8 @@ MainWindow::MainWindow(Core::Application *app, QWidget *parent) :
             connect(action, &QAction::triggered, [=](bool) { history->goToItem(item); });
         }
     });
-    ui->backButton->setDefaultAction(ui->actionBack);
+    connect(ui->backButton, &QPushButton::clicked, ui->actionBack, &QAction::trigger);
+//    ui->backButton->setDefaultAction(ui->actionBack);
     ui->backButton->setMenu(m_backMenu);
 
     m_forwardMenu = new QMenu(ui->forwardButton);
@@ -310,7 +311,8 @@ MainWindow::MainWindow(Core::Application *app, QWidget *parent) :
             connect(action, &QAction::triggered, [=](bool) { history->goToItem(item); });
         }
     });
-    ui->forwardButton->setDefaultAction(ui->actionForward);
+    connect(ui->forwardButton, &QPushButton::clicked, ui->actionForward, &QAction::trigger);
+//    ui->forwardButton->setDefaultAction(ui->actionForward);
     ui->forwardButton->setMenu(m_forwardMenu);
 
     // treeView and lineEdit

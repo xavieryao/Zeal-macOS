@@ -7,3 +7,6 @@ unix:!macx {
 win32: {
     LIBS += -lsqlite3
 }
+macx: {
+    LIBS += -lsqlite3
+}
